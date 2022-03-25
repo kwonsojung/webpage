@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수따벅수 커피상세</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="./js/starbucks_main.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./css/starbucks_coffee.css">
+    <link rel="stylesheet" href="./css/starbucks_main.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://cdn.discordapp.com/attachments/953519030080262175/953972078451777537/logo.png">
+    <script>
+        window.onload = pageLoadedHandler;
+        function pageLoadedHandler() {
+            $(".modal_btn").on("click", openModalHandler);
+            $(".close").on("click", closeModalHandler);
+        }
+        function openModalHandler() {
+            $(".modal").slideDown(1000);
+            $(".modal").on("click", closeModalWindowHandler);
+            $(".close").on("click", closeModalWindowHandler);
+        }
+        function closeModalHandler() {
+            $(".modal").slideUp();
+        }
+        function closeModalWindowHandler() {
+            if (event.target == $(".modal").get(0)
+                || event.target == $(".close").get(0)) {
+                $(".modal").slideUp(300);
+                $(".modal").off("click", closeModalWindowHandler);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="top_div">
+                <a href="/miniproject/mainpage/mainpage.html"><img
+                        src="https://cdn.discordapp.com/attachments/953519030080262175/953972078451777537/logo.png"></a>
+
+                <nav id="nav_first">
+                    <ul>
+                        <li><a href="/miniproject/login/starbucks_login_final.html">Sign In</a></li>
+                        <li><a href="https://www.starbucks.co.kr/login/login.do?redirect_url=%2Fmy%2Findex.do">My Starbucks</a></li>
+                        <li><a href="https://www.starbucks.co.kr/util/index.do">Customer Service & Ideas</a></li>
+                        <li><a href="https://www.starbucks.co.kr/store/store_map.do">Find a Store</a></li>
+                    </ul>
+                    <div class="search">
+                        <input type="text" name="" id="text" style="display: none;">
+                        <div class="material-icons">
+                            <a href="#" class="onclick"><img src="https://image.istarbucks.co.kr/common/img/common/icon_magnifier_black.png"></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="bottom_div">
+                <nav id="nav_second">
+                    <ul class="main-menu" style="padding-left: 270px;">
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/coffee/index.do">COFFEE</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="/miniproject/coffeeitem/스타벅스_커피메뉴.html">커피</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/product_list.do">스타벅스 원두</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/product_list.do?PACKAGE=01">스타벅스 비아</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/product_list.do?PACKAGE=05">스타벅스앳홈 by 캡슐</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/coffee/productFinder.do">나와 어울리는 커피</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/coffee/reserve_info.do">스타벅스 리저브™</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/reserve_magazine_list.do">RESERVE MAGAZINE</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/coffee/espresso.do">에스프레소 음료</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/doppio.do">도피오</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/espresso_macchiato.do">에스프레소 마키아또</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/americano.do">아메리카노</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/caramel_macchato.do">마키아또</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/cappuccino.do">카푸치노</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/latte.do">라떼</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/mocha.do">모카</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="/miniproject/enjoycoffee/enjoycoffee.html">최상의 커피를 즐기는 법</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do">커피 프레스</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do?PACKAGE=01">푸어 오버</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do?PACKAGE=02">아이스 푸어 오버</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do?PACKAGE=03">커피 메이커</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do?PACKAGE=04">리저브를 매장에서 다양하게 즐기는 법</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/coffee/story.do">커피 이야기</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/story.do">농장에서 우리의 손으로</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/story.do?PACKAGE=02">최상의 아리비카 원두</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/story.do?PACKAGE=03">스타벅스 로스트 스펙트럼</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/story.do?PACKAGE=04">스타벅스 디카페인</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/coffee/story.do?PACKAGE=05">클로버® 커피 추출 시스템</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                    <div class="inner">
+                                        <h4><a href="https://www.starbucks.co.kr/coffee/productFinder.do">나와 어울리는 커피 찾기</a></h4>
+                                        <p>스타벅스가 여러분에게 어울리는 커피를 찾아드립니다.</p>
+                                        <h4><a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do">최상의 커피를 즐기는 법</a></h4>
+                                        <p>여러가지 방법을 통해 다양한 풍미의 커피를 즐겨보세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/menu/index.do">MENU</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/menu/drink_list.do">음료</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_cold_brew">콜드부르</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_brood">브루드 커피</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_espresso">에스프레소</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_frappuccino">프라푸치노</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_blended">블렌디드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_fizzo">스타벅스 피지오</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_tea">티(티바나)</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_etc">기타 제조 음료</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/drink_list.do?CATE_CD=product_juice">스타벅스 주소(병음료)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/menu/food_list.do">푸드</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_bakery">브레드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_cake">케이크</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_sandwich">샌드위치 & 샐러드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_wram_food">따뜻한 푸드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_fruit_yogurt">과일 & 요거트</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_snack">스낵 & 미니 디저트</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/food_list.do?CATE_CD=product_icecream">아이스크림</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/menu/product_list.do">상품</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_mug">머그</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_glass">글라스</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_plastic">플라스틱 텀블러</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_stainless">스테인리스 텀블러</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_vacuum">보온병</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_accessories">액세서리</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_coffee">커피 용품</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/product_list.do?CATE_CD=product_teaPackage">패키지 티(티바나)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/menu/card_list.do">카드</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/menu/card_list.do?CATE_CD=product_offline">실물카드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menu/card_list.do?CATE_CD=product_egift">e-Gift카드</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="#">메뉴 이야기</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/store/store_nitro_coldbrew.do">나이트로 콜드부르</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/store/store_coldbrew.do">콜드부르</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/menuStory/teavana.do">스타 벅스 티바나</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                    <div class="inner">
+                                        <h4><a href="https://www.starbucks.co.kr/store/store_nitro_coldbrew.do">나이트로 콜드 브루</a></h4>
+                                        <p>나이트로 커피 정통의 물결치듯 흘러내리는 캐스케이딩과 부드러운 크림을 경험하세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/store/index.do">STORE</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/store/store_map.do">매장 찾기</a></h4>
+                                            <ul class="a_color">
+                                                <li><a href="https://www.starbucks.co.kr/store/store_map.do?disp=quick">퀵 검색</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/store/store_map.do?disp=locale">지역 검색</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/store/store_drive.do">x드라이브 스루 매장</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/store/store_reserve.do">스타벅스 리저브™ 매장</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/store/store_community.do">커뮤니티 스토어 매장</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="#">매장 이야기</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/store/store_star_field.do">티바나 바 매장</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                    <div class="inner">
+                                        <h4><a href="https://www.starbucks.co.kr/store/store_map.do">매장 찾기</a></h4>
+                                        <p>보다 빠르게 매장을 찾아보세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/responsibility/index.do">RESPONSIBILITY</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/responsibility/starbucks_shared_planet.do">사회공헌 캠페인 소개</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/responsibility/hope_delivery.do">지역 사회 참여 활동</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/hope_delivery.do">회망배달 캠페인</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/talent_donation.do">재능기부 카페 소식</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/community_store.do">커뮤니티 스토어</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/youth_resource.do">청년지원 프로그램</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/our_agriculture.do">우리 농산물 사랑 캠페인</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/our_culture_defend.do">우리 문화 지키기</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/responsibility/environment.do">환경보호 활동</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/environment.do">친환경 활동</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/no_disposable_cup.do">일회용 컵 없는 매장</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/bean_recycling.do">커피 원두 재활용</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/responsibility/ethically_sourcing.do">윤리 구매</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/ethically_sourcing.do">윤리적 원두 구매</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/fair_trade.do">공정무역 인증</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/farmer_support.do">커피 농가 지원 활동</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/responsibility/sp_ethical_management.do">글로벌 사회 공헌</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/sp_ethical_management.do">윤리경영 보고서</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/starbucks_foundation.do">스타벅스 재단</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/responsibility/sp_global_month.do">지구촌 봉사의 달</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/msr/index.do">STARBUCKS REWARDS</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/msr/msreward/about.do">스타벅스 리워드</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/msr/msreward/about.do">스타벅스 리워드 소개</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/msreward/level_benefit.do">등급 및 혜택</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/msreward/star.do">스타벅스 별</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/community/faq.do?menu_cd=STB2703&cate=F17">자주하는 질문</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/msr/scard/about.do">스타벅스 카드</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/msr/scard/about.do">스타벅스 카드 소개</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/scard/scard_gallery.do">스타벅스 카드 갤러리</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/scard/register_inquiry.do">등록 및 조회</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/scard/charge_information.do">충전 및 이용안내</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/scard/lost_report.do">분실신고/환불신청</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/community/faq.do?menu_cd=STB2703&cate=F05">자주하는 질문</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/msr/sceGift/egift_information.do">스타벅스 카드 e-Gift</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/msr/sceGift/egift_information.do">스타벅스 카드 e-Gift 소개</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/msr/sceGift/msr_useguide.do">이용안내</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/login/login.do?redirect_url=%2Fmsr%2FsceGift%2Fgift_step1.do">선물하기</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/community/faq.do?menu_cd=STB2703&cate=F22">자주하는 질문</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                    <div class="inner">
+                                        <h4><a href="https://www.starbucks.co.kr/msr/scard/register_inquiry.do">스타벅스 카드 등록하기</a></h4>
+                                        <p>카드 등록 후 리워드 서비스를 누리고 사용내역도 조회해보세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="item_name"><a href="https://www.starbucks.co.kr/whats_new/index.do">WHAT'S NEW</a></div>
+                            <div class="item_contents">
+                                <div class="contents_menu">
+                                    <ul class="inner">
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/whats_new/campaign_list.do">이벤트</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/campaign_list.do">전체</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/campaign_list.do?menu_cd=STB2812">스타벅스 카드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/campaign_list.do?menu_cd=STB2813">스타벅스 리워드</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/campaign_list.do?menu_cd=STB2814">온라인</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/whats_new/news_list.do">뉴스</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/news_list.do">전체</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/news_list.do?cate=N01">상품 출시</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/news_list.do?cate=N02">스타벅스의 문화</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/news_list.do?cate=N03">스타벅스 사회공헌</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/news_list.do?cate=N04">스타벅스 카드출시</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/whats_new/store_event_list.do">매장별 이벤트</a></h4>
+                                            <ul>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/store_event_list.do#">일반 매장</a></li>
+                                                <li><a href="https://www.starbucks.co.kr/whats_new/store_event_list.do?search_date=1&tab=1">신규 매장</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/whats_new/notice_list.do">공지사항</a></h4>
+                                        </li>
+                                        <li>
+                                            <h4><a href="https://www.starbucks.co.kr/whats_new/wallpaper.do">월페이퍼</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contents_texture">
+                                    <div class="inner">
+                                        <h4><a href="https://www.starbucks.co.kr/whats_new/store_event_list.do">매장별 이벤트</a></h4>
+                                        <p>스타벅스의 매장 이벤트 정보를 확인 하실 수 있습니다.</p>
+                                        <h4><a href="https://www.starbucks.co.kr/whats_new/wallpaper.do">월페이퍼</a></h4>
+                                        <p>매월 업데이트되는 월페이퍼(PC/Moblie)로 스타벅스를 더욱 가깝게 즐겨보세요!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    <section>
+        <!-- 커피 상세페이지(재우)-->
+        <div id="sub_title">
+            <div id="sub_title_inner">
+                <h1>스타벅스 원두</h1>
+                <!-- 우측상단 홈 > COFFEE > 커피 > 블론드 로스트 > 베란다 블렌드 -->
+                <!-- 스타벅스 링크 임의로 걸어놈 -->
+                <ul id="smap">
+                    <li><a href="https://www.starbucks.co.kr/index.do">홈</a></li>
+                    <li>></li>
+                    <li><a href="https://www.starbucks.co.kr/coffee/product_list.do">COFFEE</a></li>
+                    <li>></li>
+                    <li><a href="https://www.starbucks.co.kr/coffee/product_list.do">커피</a></li>
+                    <li>></li>
+                    <li><a href="./스타벅스_커피_최종.html">블론드 로스트</a></li>
+                    <li>></li>
+                    <li><a href="#">베란다 블렌드 250g</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-bottom: 40px; padding-bottom: 10px;">
+            <div id="product_view_coffee">
+                <div id="main_image_coffee">
+                    <img
+                        src="https://image.istarbucks.co.kr/upload/store/skuimg/2015/08/[11019855]_20150809120449129.jpg">
+                    <ul>
+                        <li><img
+                                src="https://image.istarbucks.co.kr/upload/store/skuimg/2015/08/[11019855]_20150809120449129.jpg">
+                        </li>
+                    </ul>
+                </div>
+                <div id="main_view_coffee">
+                    <div id="head_content">
+                        <div id="main_view_coffee_left">
+                            <h2>베란다 블렌드 250g</h2>
+                            <div id="sub_title_small">Veranda Blend 250g</div>
+                        </div>
+                        <div id="main_view_coffee_right">
+                            <a href="https://www.starbucks.co.kr/login/login.do">나만의 상품으로 등록</a>
+                        </div>
+                    </div>
+                    <div id="content_view">
+                        <p>부드럽고 친근한 성향을 가진 은은한 블렌드입니다.</p>
+                    </div>
+                    <div id="content_tast_title">
+                        <img src="./image/icon_blond.png">
+                        <span
+                            style="border-right: 1px solid silver; padding-right:15px; font-size: 15px; font-weight: bold;">블론드
+                            로스트</span>
+                        <span style="padding-left:10px; margin: 0; font-size: 14px;">은은하고 부드러운 맛 Subtle & Mellow</span>
+                    </div>
+                    <div id="content_view2" style="height: 50px; margin-bottom: 50px; position: relative;">
+                        <p>250G</p>
+                        <div class="modal_btn" id="starbucks_coffee_line-up"
+                            style="position: absolute; right: 0; bottom: -30px;">
+                            <a href="#">STARBUCKS COFFEE LINE-UP</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://www.starbucks.co.kr/coffee/story.do">
+                            <img src="https://image.istarbucks.co.kr/common/img/coffee/product_investigate_img01.jpg">
+                        </a>
+                        <a href="https://www.starbucks.co.kr/coffee/higher_enjoy.do" style="float: right;">
+                            <img src="https://image.istarbucks.co.kr/common/img/coffee/product_investigate_img02.jpg">
+                        </a>
+                        <a style="float: right; margin-top: 10px;"
+                            href="https://www.facebook.com/login.php?skip_api_login=1&api_key=179159949450639&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv6.0%2Fdialog%2Fshare_open_graph%3Fchannel%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df3ce4ea29f588fc%2526domain%253Dwww.starbucks.co.kr%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.starbucks.co.kr%25252Ff34b485c555cb9%2526relation%253Dopener%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df26ea55c198cb%2526domain%253Dwww.starbucks.co.kr%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.starbucks.co.kr%25252Ff34b485c555cb9%2526relation%253Dopener%2526frame%253Dfef46f90023d14%2526result%253D%252522xxRESULTTOKENxx%252522%26display%3Dpopup%26action_type%3Dog.shares%26action_properties%3D%257B%2522object%2522%253A%257B%2522og%253Aurl%2522%253A%2522https%253A%252F%252Fwww.starbucks.co.kr%252Fcoffee%252Fproduct_view.do%253FPRODUCT_CD%253D11019855%2522%252C%2522og%253Atitle%2522%253A%2522%25EB%25B2%25A0%25EB%259E%2580%25EB%258B%25A4%2B%25EB%25B8%2594%25EB%25A0%258C%25EB%2593%259C%2B250g%2522%252C%2522og%253Adescription%2522%253A%2522%25EB%25B6%2580%25EB%2593%259C%25EB%259F%25BD%25EA%25B3%25A0%2B%25EC%25B9%259C%25EA%25B7%25BC%25ED%2595%259C%2B%25EC%2584%25B1%25ED%2596%25A5%25EC%259D%2584%2B%25EA%25B0%2580%25EC%25A7%2584%2B%25EC%259D%2580%25EC%259D%2580%25ED%2595%259C%2B%25EB%25B8%2594%25EB%25A0%258C%25EB%2593%259C%25EC%259E%2585%25EB%258B%2588%25EB%258B%25A4.%2522%252C%2522og%253Aimage%2522%253A%2522https%253A%252F%252Fimage.istarbucks.co.kr%252Fupload%252Fstore%252Fskuimg%252F2015%252F08%252F%255B11019855%255D_20150809120449129.jpg%2522%257D%257D%26client_id%3D179159949450639%26ret%3Dlogin%26sdk%3Djoey%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.starbucks.co.kr%252Fcoffee%252Fproduct_view.do&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26ea55c198cb%26domain%3Dwww.starbucks.co.kr%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.starbucks.co.kr%252Ff34b485c555cb9%26relation%3Dopener%26frame%3Dfef46f90023d14%26result%3D%257B%2522error_code%2522%253A4201%252C%2522error_message%2522%253A%2522User%2Bcanceled%2Bthe%2BDialog%2Bflow%2522%257D%26error_code%3D4201%26error_message%3DUser%2Bcanceled%2Bthe%2BDialog%2Bflow%26e2e%3D%257B%257D&display=popup&locale=ko_KR">
+                            <img src="https://image.istarbucks.co.kr/common/img/coffee/sns_f.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+        <div>
+            <div class="modal">
+                <!-- 여기에는 아무 내용 적지 않음. - 대체로 -->
+                <div class="modal_content">
+                    <!-- 여기에 내용 작성 -->
+                    <div style="background-color: rgb(140,130,121); height: 56px; overflow: hidden; line-height: 56px;">
+                        <div style="float: left; margin-left: 30px;">
+                            <p style="color: white; font-weight: bold; font-size: 18px;">STARBUCKS COFFEE LINE-UP</p>
+                        </div>
+                        <div style="float: right; margin-right: 20px;">
+                            <div class="close"><a href="#" style="font-size: 25px; color: white;">&#9932;</a></div>
+                        </div>
+                    </div>
+                    <div style="background-color: white; height: 760px;">
+                        <img src="./image/커피상세페이지modal.png" style="width: 480px; margin: 20px auto 0; display: block;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div style="width: 1100px; margin: 0 auto; padding-top: 50px; border-top: 1px solid silver;">
+            <div>
+                <div style="float: left; width: 685px;">
+                    <p style="font-size: 13px; line-height: 1.6; margin-bottom: 40px;">특별히 선택한 고품질의 라틴 아메리카 원두 블렌드를 단시간
+                        로스팅 하면 부드러운 코코아의 섬세한 뉘앙스와 살짝 볶은 견과류 향이 살아납니다. 은은하고 달콤한 풍미가 살아있는 이 커피는 친구를 초대한 자리에 어울리는 유쾌하고 품위
+                        있는 분위기를 연출하는데 매우 잘 어울립니다. 차분하고 편안하게 즐길 수 있는 이 커피는 마치 베란다에 놓인 의자에 앉아 커피를 마시는 듯한 느낌을 줍니다. 지역과 마을에서
+                        볼 수 있는 테라스의 이름을 딴 베란다 블렌드™는 맑은 날 좋은 친구와 마시기 가장 좋은 친근한 커피입니다.</p>
+                </div>
+                <div
+                    style="background: rgb(244,244,242); width: 375px; float: right; padding: 20px; box-sizing: border-box;">
+                    <dl>
+                        <dt style="font-weight: bold; font-size: 17px; margin: 5px 0 15px;">
+                            Tasting Notes
+                        <dd
+                            style="font-size: 14px; padding-bottom: 30px; margin-bottom: 20px; border-bottom: 1px solid silver;">
+                            은은하고 달콤한 부드러움
+                        </dd>
+                        </dt>
+                        <dt style="font-weight: bold; font-size: 17px; margin: 5px 0 15px;">
+                            Enjoy with
+                        <dd style="font-size: 14px; margin-bottom: 20px;">
+                            좋은 친구와 함께 보내는 맑은 날, 한가한 시간
+                        </dd>
+                        </dt>
+                    </dl>
+                </div>
+                <div style="clear:both; float: left; margin-bottom: 130px;">
+                    <ul style="width: 685px; overflow: hidden;">
+                        <li style="float: left; display: block; width: 330px;">
+                            <dl>
+                                <img src="https://image.istarbucks.co.kr/common/img/coffee/productInvestigate_img01.jpg"
+                                    style="width: 330px; height: 110px;">
+                                <dt style="font-weight: bold; font-size: 14px; margin: 10px 0;">
+                                    디자인 스토리
+                                <dd style="font-size: 11px;">
+                                    커피가 생산되는 라틴 아메리카 농장에서 종종 만날 수 있는 벌새가 새겨진 이 디자인은 맑은날 친구와 함께 마시기 좋은 베란다 커피의 친근하고 부드러운
+                                    매력을 표현합니다.
+                                </dd>
+                                </dt>
+                            </dl>
+                        </li>
+                        <li style="float:right; display: block; width: 330px; ">
+                            <dl>
+                                <img src="https://image.istarbucks.co.kr/common/img/coffee/productInvestigate_img02.jpg"
+                                    style="width: 330px; height: 110px;">
+                                <dt style="font-weight: bold; font-size: 14px; margin: 10px 0;">
+                                    커피 테이스팅 노트
+                                <dd style="font-size: 11px;">
+                                    "베란다 블렌드를 한모금 입에 머금은 순간. 따뜻하고 부드러운 바람이 내 마음을 감싸안은 듯한 평온함을 느끼게 되고, 마지막에 나타나는 뒷맛의 달콤한
+                                    느낌은 마치, 한동안 잊고 지냈던 그리운 친구와 함께 보냈던 소중하고 아름다운 순간들을 떠오르게 한다." by 8대 커피 앰배서더
+                                    김양진(Buffett) 파트너
+                                </dd>
+                                </dt>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both; background: rgb(244,244,242); padding: 50px;">
+            <div style="width: 1100px; margin: 0 auto;">
+                <div style="width: 550px; float: left;">
+                    <div
+                        style="width: 550px; height: 136.5px; padding-left: 10px; border-right: 1px solid silver; position: relative;">
+                        <div>
+                            <h3>프로모션 새소식</h3>
+                            <li style="margin-top: 5px;">
+                                <a href="#" style="font-size: 13px;"> · 해당 상품과 관련된 진행 중인 프로모션이 없습니다.</a>
+                            </li>
+                        </div>
+                        <a href="#"><img src="https://image.istarbucks.co.kr/common/img/menu/news_more.png"
+                                style="position: absolute; right: 30px; top: 0;"></a>
+                    </div>
+                </div>
+                <div style="width: 550px; float: left;">
+                    <div>
+                        <div style="width: 550px;">
+                            <div><img src="https://image.istarbucks.co.kr/common/img/menu/sirenOrder_img_171109.png"
+                                    style="width: 171px; height: 171px; margin-left: 30px; float: left;"></div>
+                            <div style="float:left; margin-left: 20px;">
+                                <h3>사이렌오더란?</h3>
+                                <p style="width: 321px; font-size: 13px; margin-top: 5px;">매장에서 줄을 서지 않고 주문하는 쉽고 간편한 O2O
+                                    (Online to Offline) 서비스로서 앱을 통해 스타벅스 음료, 푸드 및 원두의 결제 및 주문을 완료하면 매장에서 즉시 메뉴를 받을 수 있는
+                                    스타벅스만의 신개념 서비스 입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="clear:both; border-top: 1px solid silver; width: 1100px; margin: 0 auto; padding:30px 0 30px 10px">
+                <div>
+                    <h3>관련 제품</h3>
+                    <div style="margin-top: 20px; width: 500px; overflow:hidden">
+                        <div style="width: 160px; height: 170px; display: block; float:left;">
+                            <a href="#" class="random_img">
+                                <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[11017015]_20150722234902895.jpg"
+                                    style="width: 160px;height: 170px;">
+                            </a>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <h5>하우스 블렌드 250g</h5>
+                            <p style="width: 170px; font-size: 12px;margin-top: 10px">깔끔하고 균형 잡힌 맛이 특징인 중간 정도 무게감의 커피
+                            </p>
+                            <div style="padding-top: 85px;">
+                                <a href="#" style="font-size: 12px;">자세히 보기></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer : 김우진, 손은진, 윤영원 -->
+    <footer id="footer">
+        <div class="footer_wrap">
+            <div class="footer_menus">
+                <ul>
+                    <li class="footer_menu_ttl">
+                        <a class="en"> COMPANY
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/footer/company/index.do">한눈에 보기</a>
+                    </li>
+                    <li>
+                        <a href="/footer/company/mission.do">스타벅스 사명</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">스타벅스 소개
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/footer/company/starbucks_information.do">스타벅스 코리아</a>
+                    </li>
+                    <li>
+                        <a href="/footer/company/starbucks_history.do">주요 연혁</a>
+                    </li>
+                    <li>
+                        <a href="/footer/company/starbucks_story.do">스타벅스 이야기</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="footer_menu_ttl">
+                        <a class="en" id="goPage">
+                            CORPORATE SALES
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/footer/co_sales/index.do"> 단체 및 기업 구매 안내</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="footer_menu_ttl">
+                        <a class="en">
+                            PARTNERSHIP
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/footer/partnership/new_partner.do">신규 입점 제의</a>
+                    </li>
+                    <li>
+                        <a href="/srm/login.do">협력 고객사 등록신청</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="footer_menu_ttl">
+                        <a class="en">
+                            ONLINE COMMUNITY
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/starbuckskorea">페이스북</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/StarbucksKorea">트위터</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/user/starbuckskorea">유튜브</a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/starbuckskorea/">인스타그램</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="footer_menu_ttl">
+                        <a class="en">
+                            RECRUIT
+                            <span class="footer_arrow_down"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.starbucks.co.kr/footer/recruit/index.do">채용 소개</a>
+
+                    </li>
+                    <li>
+                        <a href="http://job.shinsegae.com/recruit_info/notice/notice01_view.jsp?notino=6101">채용 지원하기</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 수상내역 -->
+        <div class="footer_awards_wrap">
+            <div class="footer_awards_wrap_inner">
+                <ul class="footer_awards_slider">
+                    <li>
+                        <a taget="_blank">
+                            <img alt="여섯가족부 2020 대한민국 일자리대상 여성가족부장관상"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award23.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a taget="_blank">
+                            <img alt="행정안전부 2020 소방의 날 행정안전부 장관 표창"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award24.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank">
+                            <img alt="농림축산식품부 2020 대한민국 커피산업대상 농림축산식품부 장관상"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award25.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a taget="_blank">
+                            <img alt="산업통상자원부 2020 대한민국 중소중견기업혁신 대상 국회산업통상자원중소벤처위원회장상"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award26.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a taget="_blank">
+                            <img alt="일자리위원회 2020 대한민국 일자리 유공 표창 대통령직속 일자리위원회 부위원장상"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award27.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a taget="_blank">
+                            <img alt="동반성장위원회 2020 사랑나눔 사회공헌대상 동반성장위원회 위원장상"
+                                src="//image.istarbucks.co.kr/common/img/footer/footer_award28.jpg">
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer_slider_controller"></div>
+            </div>
+        </div>
+        <!-- Express DT MSR 회원 확인 Popup -->
+        <div calss="dtPop ecoPop" id="msrCherckPop">
+
+        </div>
+        <div class="dtPop ecoPop" id="msrCherckPop_rewardTumbler"></div>
+        <div class="dt_pop_up_dimm"></div>
+        </div>
+        <aside class="copyright">
+            <a class="c_00b050" href="/footer/etc/privacy.do">개인정보처리 방침</a>
+            <a href="/footer/etc/rules_vod.do">홈페이지 이용약관</a>
+            <a href="/footer/etc/rules_loc.do" class="mbn">위치정보 이용약관</a>
+            <a href="/footer/etc/rules_msr.do" class="mbn">스타벅스 카드 이용약관</a>
+            <a href="/footer/etc/rules_non.do" class="mbn">비회원 이용약관</a>
+            <span class="br">
+                <a href="/footer/etc/rules_mdp.do">My DT Pass 서비스 이용약관</a>
+            </span>
+            <a href="/footer/etc/hotline.do" class="last">윤리경영 핫라인</a>
+            <br>
+            <a class="btned_link" href="/footer/etc/coming_route.do">찾아오시는 길</a>
+            <a class="btned_link" href="/footer/partnership/new_partner.do">신규입점제의</a>
+            <a class="btned_link" href="/footer/etc/sitemap.do">사이트 맵</a>
+            <br>
+            <ul class="copy_menu">
+                <li>사업자등록번호 : 201-81-21515</li>
+                <li>주식회사 에스씨케이컴퍼니 대표이사 : 송 데이비드 호섭</li>
+                <li>TEL : 1522-3232</li>
+                <li>개인정보 책임자 : 하익성</li>
+            </ul>
+            <span clas="en">ⓒ 2022 Starbucks Coffee Company. All Rights Reserved.</span>
+        </aside>
+    </footer>
+</body>
+
+</html>

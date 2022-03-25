@@ -1,0 +1,673 @@
+/* 공통 CSS */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+ul, li{
+    list-style-type: none;
+}
+
+/*  ! 메뉴바 : 영원 */
+/* 리스트 문자 없애기 */
+header{
+    margin: 0 auto;
+    background: #f6f5ef;
+    border-top: 3px solid #000;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+header>div{
+    height: 120px;
+    position: relative;
+    
+}
+/* top_div 크기 설정 */
+header>div>.top_div{
+    margin: 0 auto;
+    width: 1100px;
+    height: 50px;
+    position: relative;
+    
+}
+
+header>div:after{display: block; clear: both;}
+
+/* 로고 위치 설정 */
+header>div>.top_div>a{
+    float: left;
+    margin: 22px 0 0;
+    position: relative;
+}
+/* first nav 설정 */
+header>div>.top_div>#nav_first{
+    position: absolute;
+    display: flex;
+    left: 500px;
+    top: 7px;
+    width: 800px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+/* first nav 정렬 */
+header>div>.top_div>#nav_first>ul{
+    display: flex;
+}
+/* first nav 각 컬럼 설정 */
+header>div>.top_div>#nav_first>ul>li{
+    position: relative;
+    line-height: 30px;
+}
+
+
+
+/* 돋보기 위치설정 */
+header>div>.top_div>#nav_first>ul>li>a{
+    /* display: block; */
+    position: relative;
+    display: block;
+    padding: 11px 16px;
+}
+/* first nav 각 컬럼 호버시 언더라인 */
+header>div>.top_div>#nav_first>ul>li>a:hover{
+    text-decoration: underline;
+}
+
+/* search bar-text창 */
+header>div>.top_div>#nav_first>.search>input{
+    height: 26px;
+    transition: 0.4s; 
+}
+
+/* 돋보기 설정 */
+header>div>.top_div>#nav_first>.search .material-icons{
+    background: white;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin: 0 auto;
+    transition: .4s;
+    vertical-align: middle;
+    padding: 3px 6px;
+}
+
+
+/* 돋보기 클릭시 text창 열리고 돋보기는 사라짐 */
+header>div>.top_div>#nav_first>.search.focused .material-icons{
+    opacity: 0;
+}
+
+/* first nav 각 컬럼 안 링크*/
+header>div>.top_div>#nav_first>ul>li a{
+    display: block;
+    font-size: smaller;
+    color: #555;
+    padding: 0 15px;
+    border-right: 1px solid rgb(235, 229, 229);
+    
+}
+
+
+/* first nav 돋보기 왼쪽 테두리 제거 */
+header>div>.top_div>#nav_first>ul>li:nth-last-child(1)>a{
+    border-right: 0;
+}
+
+/* botto_div 위치 설정 방법 */
+header>div>.bottom_div{
+    display: flex;
+    
+}
+/* 위치 조정 실패 */
+/* header .nav_second{
+} */
+
+/* second nav 위치고정 */
+header .main-menu{
+    position: absolute;
+    height: 70px;
+    bottom: 12px;
+    z-index: 1;
+    
+}
+/* second nav float 정렬 */
+header .main-menu .item{
+    float: left;
+    height: 70px;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+/* second nav 각 컬럼 */
+header .main-menu .item .item_name {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* second nav 각 컬럼 a태그 */
+header .main-menu .item .item_name a{
+    display: block;
+    height: 40px;
+    width: 0 auto;
+    padding: 10px 20px 12px;
+    color: #000;
+    
+}
+
+/* second nav 호버시 색상변경 */
+header .main-menu .item:hover .item_name a{
+  background-color: #2c2a29;
+  color: #669900;
+}
+
+/* dropdown 전체 div */
+header .main-menu .item .item_contents {
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  transition: 0.5s; 
+}
+
+/* 컬럼 호버시 dropdown 전체 div */
+header .main-menu .item:hover .item_contents {
+  display: block;
+  height: 500px;
+  
+}
+
+/* dropdown 위치고정 */
+header .main-menu .item .item_contents .contents_menu {
+  background-color: #2c2a29;
+  padding-left: calc(50% - 550px);
+  
+}
+/* dropdown 정렬 방법 */
+header .main-menu .item .item_contents .contents_menu>ul {
+  display: flex;
+  padding: 20px 0;
+}
+
+/* dropdown 각 li 너비 */
+header .main-menu .item .item_contents .contents_menu>ul>li {
+  width: 220px;
+}
+
+/* 첫번째라인 설정 */
+header .main-menu .item .item_contents .contents_menu>ul>li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+}
+
+/* 첫번째라인 글자색 */
+header .main-menu .item .item_contents .contents_menu ul li h4 a{
+    color: #fff;
+}
+
+/* 나머지라인 설정 */
+header .main-menu .item .item_contents .contents_menu>ul>li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* 나머지라인 글자색 */
+header .main-menu .item .item_contents .contents_menu ul li ul a{
+    color: #999;
+}
+
+/* dropdown 각 리스트 마우스 호버시 밑줄 */
+header .main-menu .item .item_contents .contents_menu ul li a:hover{
+    text-decoration: underline;
+}
+
+/* dropdown 2번째 div */
+header .main-menu .item .item_contents .contents_texture {
+  padding: 26px 0;
+  font-size: 12px;
+  padding-left: calc(50% - 550px);
+  background-image: url(https://www.starbucks.co.kr/common/img/common/gnb_sub_txbg.jpg);
+}
+
+
+/* dropdown 2번째 div-첫줄 글자생삭 */
+header .main-menu .item .item_contents .contents_texture a{
+    color: #999
+  }
+/* dropdown 2번째 div-두번째줄 글자색상 */
+header .main-menu .item .item_contents .contents_texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+    
+    /* 회원가입 */
+    
+    fieldset {
+        border: 0;
+    }
+    /* 공간 */
+    #container {
+        width: 100%;
+    }
+    /* 회원가입 틀 */
+    .mem_wrap {
+        /* padding: 0 5% 10%; */
+        margin: 0 auto;
+        max-width: 570px;
+        padding-top: 200px;
+        padding-bottom: 100px;
+    }
+    /* 글자 */
+    .mem_tit {
+        display: block;
+        font-size: 30px;
+        font-weight: normal;
+        margin: 30px;
+        text-align: center;
+    }
+    .inner_form > .form_txt {
+        padding: 30px 20px 30px;
+        border-bottom: 1px solid #ddd;
+        color: #777;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+    }
+    .tit {
+        font-weight: bold;
+        color: green;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .txt_green {
+        color: #006241;
+    }
+    h5{
+        font-size: 20px;
+        color: #222;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .mem_accreditation_info > li >.acc_titl {
+        font-size: 14px;
+        font-weight: bold;
+        color: #444;
+        margin-bottom: 10px;
+    }
+    .mem_accreditation_info > li > .acc_txt1 {
+        font-size: 14px;
+        color: #666;
+        height: 55px;
+        margin: 0 auto 20px;
+        width: 80%;
+        line-height: 1.4;
+    }
+    .mem_accreditation_info > li > .acc_btn {
+        border-radius: 3px;
+        width: 82px;
+        height: 30px;
+        line-height: 30px;
+        background: #666;
+        margin: 0 auto;
+    }
+    .mem_accreditation_info > li > .acc_btn a {
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+    }
+    /* 체크박스 */
+    .check_box {
+        display: block;
+        position: absolute;
+        width: 26px;
+        right: 3px;
+        top: 0;
+    }
+    input {
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+        vertical-align: top;
+        border-radius: 0;
+    }
+    input.check[type=checkbox]:not(old){position: absolute; width:26px; height: 26px; top: 0px; left:0px; padding:0;  border: 0 none;  background: #fff; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;  outline:none;} /* 20191226 ios 테두리 노출 수정 */
+    input.check[type=checkbox]:not(old) + label{position: absolute; display: inline-block; width: 26px; height: 26px; line-height: 26px;   background: #fff url("https://www.starbucks.co.kr/common/img/util/mem/mem_check_off_type2.png") 0 0 no-repeat ; font-size: 13px; color: #3f4141; cursor: pointer; vertical-align: top; background-size: 26px; text-indent: -9999px; cursor: pointer;  font-size: 0;overflow: hidden;  z-index: 4; -webkit-appearance: none; -moz-appearance: none; appearance: none;  outline:none;}
+    input.check[type=checkbox]:checked + label , input.check[type=checkbox]:active + label {background: #fff url('https://www.starbucks.co.kr/common/img/util/mem/mem_check_on_type2.png') no-repeat 0 0;background-size: 26px;}
+
+    /* section */
+    .inner_form {
+        padding: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        box-sizing: border-box;
+        max-width: 570px;
+        margin: 0 auto 30px;
+        position: relative;
+    }
+    .inner_form > .sally {
+        margin: 0 auto;
+        text-align: center;
+        padding: 30px 20px 0;
+        background: url("https://image.istarbucks.co.kr/common/img/util/mem/icon_find_sally.png") 50% 100% no-repeat;
+        width: 240px;
+        height: 220px;
+    }
+    /* agree */
+    .inner_form > .mem_agree_wrap{
+        margin: 20px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        padding: 3px 0;
+        line-height: 24px;
+    }
+    .mem_agree_wrap > .mem_agree_frame {
+        background: #f7f7f7;
+        box-sizing: border-box;
+        color: #666;
+        height: 170px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+        overflow: auto;
+        padding: 20px;
+    }
+    .mem_agree_frame::-webkit-scrollbar {
+        width: 12px;
+    }
+    .mem_agree_frame::-webkit-scrollbar-thumb {
+        background-color: #222; /*스크롤바의 색상*/
+        border-radius: 16px;
+    }
+    .mem_agree_frame::-webkit-scrollbar-track {
+        background-color: #666; /*스크롤바 트랙 색상*/
+        border-radius: 16px;
+    }
+    /* purpose */
+    .inner_form > .mem_purpose_wrap{
+        margin: 20px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        padding: 3px 0;
+        line-height: 24px;
+    }
+    .mem_purpose_wrap > .mem_purpose_frame {
+        background: #f7f7f7;
+        box-sizing: border-box;
+        color: #666;
+        height: 170px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+        overflow: auto;
+        padding: 20px;
+    }
+    .mem_purpose_frame::-webkit-scrollbar {
+        width: 12px;
+    }
+    .mem_purpose_frame::-webkit-scrollbar-thumb {
+        background-color: #222; /*스크롤바의 색상*/
+        border-radius: 16px;
+    }
+    .mem_purpose_frame::-webkit-scrollbar-track {
+        background-color: #666; /*스크롤바 트랙 색상*/
+        border-radius: 16px;
+    }
+    /* advertise */
+    .inner_form > .mem_advertise_wrap{
+        margin: 20px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        padding: 3px 0;
+        line-height: 24px;
+    }
+    /* caution */
+    .inner_form > .mem_caution_wrap{
+        margin: 20px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        line-height: 24px;
+    }
+    .mem_caution_wrap ul{
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    .mem_caution_wrap ul>li{
+        color: #666;
+        font-size: 16px;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 10px;
+        /* list-style: none; */
+    }
+    /* accreditation */
+    .mem_accreditation_wrap {
+        margin: 20px;
+    }
+    .mem_accreditation_frame {
+        padding: 40px 0;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 0px;
+        max-width: 100%;
+        width: auto;
+    }
+    .mem_accreditation_info {
+        max-width: 539px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        display: block;
+        line-height: 1;
+    }
+    .mem_accreditation_info::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .mem_accreditation_info > .li1 {
+        width: 49%;
+        border-right: 1px solid #ddd;
+        float: left;
+        text-align: center;
+        list-style: none;
+    }
+    .mem_accreditation_info > .li2 {
+        width: 50%;
+        float: left;
+        text-align: center;
+        list-style: none;
+    }
+    .mem_accreditation_info > .li1 > .fig1 {
+        width: 40px;
+        margin: 0 auto 20px auto;
+        display: block;
+    }
+    .mem_accreditation_info > .li2 > .fig2 {
+        width: 77px;
+        margin: 0 auto 28px auto;
+    }
+
+    /* footer */
+
+footer#footer{
+    background:#2C2A29;
+    clear:both;
+    position: relative;
+    width: 100%;
+    padding-top: 30px;
+}
+
+
+ /* div 백그라운드 */
+.footer_wrap{
+    background:url("	https://www.starbucks.co.kr/common/img/footer/footer_logo.png") right 8px no-repeat;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+}
+/* footer_wrap div */
+
+.footer_wrap{
+    margin-left: -591px;
+    width: 1182px;
+    
+}
+
+.footer_menus ul li.footer_menu_ttl a{
+    font-size: 14px;
+    line-height: 40px;
+}
+.footer_menus ul li a{
+    color: white;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.footer_menus ul li a{
+    width: 100%;
+}
+
+
+.footer_menus ul{
+    width: 220px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 30px;
+}
+
+.footer_menus {
+    padding-bottom: 40px;
+}
+
+.footer_awards_wrap {
+    background: #282828;
+    height: 80px;
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.footer_awards_slider {
+    display: inline-block;
+    position: relative;
+}
+
+.footer_awards_wrap_inner {
+    position: absolute;
+    left: 50%;
+    margin-left: -591px;
+    width: 1182px;
+    padding-bottom: 20px;
+}
+
+.footer_awards_wrap_inner ul li {
+    float: left;
+}
+
+.footer_awards_wrap_inner li {
+    position: relative;
+}
+
+.footer_awards_slider li a {
+    display: block;
+}
+
+.footer_awards_slider li a img {
+    margin: 0 auto;
+}
+
+.footer_slider_controller {
+    bottom: 3px;
+    height: 12px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 14;
+}
+
+.copyright {
+    left: 50%;
+    position: relative;
+    display: block;
+    color: #999;
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: -50%;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.copyright ul.copy_menu li {
+    line-height: 1.3;
+    display: inline-block;
+    margin: 0 7px;
+}
+
+.copyright a {
+    display: inline-block;
+    border-right: 1px solid #393939;
+    color: #ccc;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.c_00b050 {
+    color: #00b050 !important;
+    font-weight: bold;
+}
+
+.copyright a.last {
+    border-right: 0;
+}
+
+.copyright a.btned_link {
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px 2px 0 3px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.copyright ul.copy_menu {
+    padding: 25px 0 5px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.copyright span.en {
+    display: inline-block;
+    line-height: 40px;
+}
+
+.en {
+    font-family: Arial, Helvetica, sans-serif;
+}
